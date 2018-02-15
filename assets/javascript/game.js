@@ -66,7 +66,7 @@ $(document).ready(function() {
 
 	 // Moves selected enemy to the "arena" class
 	function enemyPush(i) {
-	  $(".arena").append(i);
+	  $(".characters").append(i);
 	  (i).css("background-color", "#94041b");
 	}	
 
