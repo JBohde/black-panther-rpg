@@ -57,7 +57,7 @@ $(document).ready(function() {
 	 // Starts the music and moves unselected characters to the "enemies" class and changes their background color
 	function characterPush(x,y,z) {
 	  myAudio.loop = true;
-	  // myAudio.play();
+	  myAudio.play();
 	  (x).css("background-color", "#0a043f");
 	  (y).css("background-color", "#0a043f");
 		(z).css("background-color", "#0a043f");
