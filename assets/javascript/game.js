@@ -82,14 +82,13 @@ $(document).ready(function() {
 
 		// *******CHARACTER SELECTION*******//
 	  // Add an on click listener for all elements that have "characters" class.
-	  $(".character").on("click touchstart", function(event) {
-			console.log("NUMBER ONE!");
+	  $(".character").on("click", function(event) {
 	  	enemyHealthNumber = 150;
-		characterHealthNumber = 150;
-	 	if (isCharacterPicked) return;
-		isCharacterPicked = true;
-		character = event.currentTarget.id;
-		results.innerHTML = opponentChoice;
+			characterHealthNumber = 150;
+	 		if (isCharacterPicked) return;
+			isCharacterPicked = true;
+			character = event.currentTarget.id;
+			results.innerHTML = opponentChoice;
 		
 	   // When you pick Black Panther
 	    if (character === "blackPanther") {
@@ -115,11 +114,10 @@ $(document).ready(function() {
 
 		// *******ENEMY SELECTION*******//
 	   // Add an on click listener to all elements that have an "enemies" class
-	  $(".character").on("click touchstart", function(event) {
-			console.log("HELLO!");
+	  $(".character").on("click", function(event) {
 	  	if (!isCharacterPicked || isEnemyPicked) return;
-		enemy = event.currentTarget.id;
-		characterHealth.text(characterHealthNumber);
+			enemy = event.currentTarget.id;
+			characterHealth.text(characterHealthNumber);
 		
 	      // When you pick Black Panther
 	    if (character !== "blackPanther" && enemy === "blackPanther"){
@@ -158,7 +156,7 @@ $(document).ready(function() {
 
 		// *******FIGHT ARENA*******//
 	   // Add an on click listener to the attack button to start the fight
-	  $(".attack").on("touchstart click", function(event) {
+	  $(".attack").on("click", function(event) {
 
 		characterAttack = characterAttackGenerator();
 		enemyAttack = enemyAttackGenerator();
