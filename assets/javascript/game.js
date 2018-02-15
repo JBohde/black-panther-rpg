@@ -52,37 +52,38 @@ $(document).ready(function() {
 	  $(".health").text(playerHealthNumber);
 	  // Displays opening sequence status
 	  results.innerHTML = beginGame;
-	};
+	}
 
 	 // Starts the music and moves unselected characters to the "enemies" class and changes their background color
 	function characterPush(x,y,z) {
 	  myAudio.loop = true;
-	  myAudio.play();
+	  // myAudio.play();
 	  (x).css("background-color", "#0a043f");
 	  (y).css("background-color", "#0a043f");
-	  (z).css("background-color", "#0a043f");
+		(z).css("background-color", "#0a043f");
 	  $(".enemies").append(x,y,z);
-	};	
+	}
 
 	 // Moves selected enemy to the "arena" class
 	function enemyPush(i) {
 	  $(".arena").append(i);
 	  (i).css("background-color", "#94041b");
-	};	
+	}	
 
 	 // Randomly picks an attack value between 17 and 21
 	function characterAttackGenerator() {
 	  return Math.floor(Math.random() * 5 + 17);
-	};
+	}
 
 	 // Randomly picks an attack value between 16 and 20
 	function enemyAttackGenerator() {
 	  return Math.floor(Math.random() * 5 + 16);
-	};
+	}
 
-	// *******CHARACTER SELECTION*******//
+		// *******CHARACTER SELECTION*******//
 	  // Add an on click listener for all elements that have "characters" class.
-	  $(".character").on("click", function(event) {
+	  $(".character").on("click touchstart", function(event) {
+			console.log("NUMBER ONE!");
 	  	enemyHealthNumber = 150;
 		characterHealthNumber = 150;
 	 	if (isCharacterPicked) return;
@@ -112,13 +113,14 @@ $(document).ready(function() {
 	    }
 	  });
 
-	// *******ENEMY SELECTION*******//
+		// *******ENEMY SELECTION*******//
 	   // Add an on click listener to all elements that have an "enemies" class
-	  $(".character").on("click", function(event) {
+	  $(".character").on("click touchstart", function(event) {
+			console.log("HELLO!");
 	  	if (!isCharacterPicked || isEnemyPicked) return;
 		enemy = event.currentTarget.id;
 		characterHealth.text(characterHealthNumber);
-
+		
 	      // When you pick Black Panther
 	    if (character !== "blackPanther" && enemy === "blackPanther"){
 		   enemyPush(blackPanther);
@@ -154,9 +156,9 @@ $(document).ready(function() {
 	  });
 
 
-// *******FIGHT ARENA*******//
+		// *******FIGHT ARENA*******//
 	   // Add an on click listener to the attack button to start the fight
-	  $(".attack").on("click", function(event) {
+	  $(".attack").on("touchstart click", function(event) {
 
 		characterAttack = characterAttackGenerator();
 		enemyAttack = enemyAttackGenerator();
