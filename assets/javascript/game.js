@@ -29,6 +29,15 @@ $(document).ready(function() {
 	var enemiesRemaining = 3;
 	// Gameplay audio file
 	var myAudio = new Audio("assets/audio/Black_Panther_Theme.mp3");
+	// Theme Button
+	$(".theme-button").on("click", function() {
+			myAudio.play();
+	});
+
+	$(".pause-button").on("click", function() {
+			myAudio.pause();
+	});
+
 	var results = document.querySelector(".results");
 	// Sets variable values for in game messages
 	var beginGame = "<p> The struggle for Wakanda has begun!" + "<br>" + " Pick a character!</p>";
